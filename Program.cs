@@ -6,13 +6,13 @@ namespace UserRegistration
     {
         static void Main(string[] args)
         {
-            MobileNumber MobileNum = new MobileNumber();
-            Console.WriteLine("Enter the mobile num");
-            string number = Console.ReadLine();
-            bool match = MobileNum.ValidateNumber(number);
+            Console.WriteLine("Enter the password");
+            Password password = new Password();
+            string pass = Console.ReadLine();
+            bool match = password.Rule1(pass);
             if (match != true)
             {
-                Console.WriteLine("Enter a valid Mobile number");
+                Console.WriteLine("Enter a valid ");
             }
         }
     }
