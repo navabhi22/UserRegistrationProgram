@@ -8,8 +8,8 @@ namespace UserRegistration
         {
             Console.WriteLine("Enter the password");
             Password password = new Password();
-            string pass = Console.ReadLine();
-            bool match = password.Rule3(pass);
+            string pass = Console.ReadLine():
+            bool match = password.Rule4(pass);
             if (match != true)
             {
                 Console.WriteLine("Enter a valid password ");
