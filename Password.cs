@@ -9,8 +9,8 @@ namespace UserRegistration
 {
     public class Password
     {
-        String passRegex = "^(?=.*[A-Z])([a-zA-Z0-9]*).{8,}$";
-        public bool Rule2(string password)
+        String passRegex = "^(?=.*[A-Z])(?=.*[0-9])([a-zA-Z0-9]*).{8,}$";
+        public bool Rule3(string password)
         {
             return Regex.IsMatch(password, passRegex);
         }
