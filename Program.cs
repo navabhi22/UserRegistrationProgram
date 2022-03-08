@@ -9,7 +9,7 @@ namespace UserRegistration
             Console.WriteLine("Enter the password");
             Password password = new Password();
             string pass = Console.ReadLine();
-            bool match = password.Rule2(pass);
+            bool match = password.Rule3(pass);
             if (match != true)
             {
                 Console.WriteLine("Enter a valid password ");
