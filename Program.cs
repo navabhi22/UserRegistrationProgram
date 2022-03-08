@@ -6,13 +6,13 @@ namespace UserRegistration
     {
         static void Main(string[] args)
         {
-            eMail mail = new eMail();
-            Console.WriteLine("Enter the eMail");
-            string Mail = Console.ReadLine();
-            bool match = mail.ValidateEmail(Mail);
+            MobileNumber MobileNum = new MobileNumber();
+            Console.WriteLine("Enter the mobile num");
+            string number = Console.ReadLine();
+            bool match = MobileNum.ValidateNumber(number);
             if (match != true)
             {
-                Console.WriteLine("Enter a valid Email address");
+                Console.WriteLine("Enter a valid Mobile number");
             }
         }
     }
