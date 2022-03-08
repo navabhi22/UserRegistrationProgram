@@ -9,12 +9,14 @@ namespace UserRegistration
 {
     public class Name
     {/// <summary>
-    /// Validating FirstName
+    /// Validating Name
     /// </summary>
         public static string Pattern = "^[A-Z][a-z]{2}";
-        public bool FirstName(string FirstName)
+        public bool ValidName(string Name)
         {
-            return Regex.IsMatch(FirstName, Pattern);
+            return Regex.IsMatch(Name, Pattern);
         }
+        
     }
+
 }
