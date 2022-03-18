@@ -2,43 +2,68 @@
 
 namespace UserRegistration
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            eMail mail = new eMail();
-
-            bool[] match = new bool[23];
-
-            match[1] = mail.ValidateEmail("abc@yahoo.com");
-            match[2] = mail.ValidateEmail("abc-100@yahoo.com");
-            match[3] = mail.ValidateEmail("abc.100@yahoo.com");
-            match[4] = mail.ValidateEmail("abc.111@abc.com");
-            match[5] = mail.ValidateEmail("abc.100@abc.net");
-            match[6] = mail.ValidateEmail("abc.100@abc.com.au");
-            match[7] = mail.ValidateEmail("abc@1.com");
-            match[8] = mail.ValidateEmail("abc@gmail.com.com");
-            match[9] = mail.ValidateEmail("abc+100@gmail.com");
-            match[10] = mail.ValidateEmail("abc");
-            match[11] = mail.ValidateEmail("abc@.com.my");
-            match[12] = mail.ValidateEmail("abc123@gmail.a");
-            match[13] = mail.ValidateEmail("abc123@.com");
-            match[14] = mail.ValidateEmail("abc123@.com.com");
-            match[15] = mail.ValidateEmail(".abc@abc.com");
-            match[16] = mail.ValidateEmail("abc()*@gmail.com");
-            match[17] = mail.ValidateEmail("abc@%*.com");
-            match[18] = mail.ValidateEmail("abc..2002@gmail.com");
-            match[19] = mail.ValidateEmail("abc.@gmail.com");
-            match[20] = mail.ValidateEmail("abc@abc@gmail.com");
-            match[21] = mail.ValidateEmail("abc@gmail.com.1a");
-            match[22] = mail.ValidateEmail("abc@gmail.com.aa.au");
-
-            for (int i = 1; i < 23; i++)
+            Console.WriteLine("WElcome to User Registration Program using Regex\n");
+            try
             {
-                if (match[i] == true)
-                { Console.WriteLine("valid"); }
-                else
-                { Console.WriteLine("not valid"); }
+                while (true)
+                {
+                    Console.WriteLine("Please choose an option to Validate:");
+                    Console.WriteLine("\n1. First Name \n2. Last Name \n3. Email-ID \n4. Mobile Number \n5. Password \n6. Exit");
+                    int option = Convert.ToInt32(Console.ReadLine());
+                    switch (option)
+                    {
+                        case 1:
+                            Console.WriteLine("\nPlease Enter your First Name:");
+                            Console.WriteLine("Note: First name starts with Cap and has minimun 3 characters");
+                            string firstName = Console.ReadLine();
+                            Console.WriteLine(UserReg.ValidateFirstName(firstName));
+                            break;
+                        case 2:
+                            Console.WriteLine("\nPlease Enter your Last Name:");
+                            Console.WriteLine("Note: Last name starts with Cap and has minimun 3 characters");
+                            string lastName = Console.ReadLine();
+                            Console.WriteLine(UserReg.ValidateLastName(lastName));
+                            break;
+                        case 3:
+                            Console.WriteLine("\nPlease Enter your Email-ID:");
+                            Console.WriteLine("Note: E.g. abc.xyz@bl.co.in - Email has 3 mandatory parts (abc, bl & co) and 2 optional (xyz & in) with precise @ and . positions");
+                            string email = Console.ReadLine();
+                            UserReg.ValidateEmail(email);
+                            break;
+                        case 4:
+                            Console.WriteLine("\nPlease Enter your Mobie Number:");
+                            Console.WriteLine("Note: Country code follow by space and 10 digit number");
+                            string mobNum = Console.ReadLine();
+                            UserReg.ValidateMobileNumber(mobNum);
+                            break;
+                        case 5:
+                            Console.WriteLine("\nPlease Enter your Password:");
+                            Console.WriteLine("Note: Password must contain min 8 characters, atleast 1 Upper Case, atleast 1 numeric number and 1 special character");
+                            string password = Console.ReadLine();
+                            UserReg.ValidatePassword(password);
+                            break;
+                        case 6:
+                            Environment.Exit(0);
+                            break;
+                        default:
+                            Console.WriteLine("Please choose a valid option");
+                            break;
+                    }
+                    Console.ReadLine();
+                }
+            }
+            catch (NullReferenceException e)
+            {
+
+                Console.WriteLine(e.Message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
         }
     }
