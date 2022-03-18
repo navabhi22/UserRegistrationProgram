@@ -9,8 +9,8 @@ namespace UserRegistration
 {
     public class UserReg
     {
-        //UC1 - Method to Validate First Name entered by user using lambda statement(UC14)
-        public static Func<string, string> ValidateFirstName = firstName =>
+        //UC1 - Method to Validate First Name entered by user
+        public static string ValidateFirstName(string firstName)
         {
             try
             {
@@ -18,7 +18,7 @@ namespace UserRegistration
 
                 if (firstName.Equals(string.Empty))
                 {
-                    Console.WriteLine("First name should not be empty");
+                    throw new UserRegistrationException(UserRegistrationException.ExceptionTypes.EMPTY_MESSAGE_EXCEPTION, "First name should not be empty");
                 }
                 if (Regex.IsMatch(firstName, firstName_pattern))
                 {
@@ -42,10 +42,10 @@ namespace UserRegistration
             {
                 return ex.Message;
             }
-        };
+        }
 
-        //UC2 - Method to Validate Last Name entered by user using lambda statement(UC14)
-        public static Func<string, string> ValidateLastName = lastName =>
+        //UC2 - Method to Validate Last Name entered by user
+        public static string ValidateLastName(string lastName)
         {
             try
             {
@@ -77,10 +77,10 @@ namespace UserRegistration
             {
                 return ex.Message;
             }
-        };
+        }
 
-        //UC3 - Method to Validate Email-ID entered by user using lambda statement(UC14)
-        public static Func<string, string> ValidateEmail = email =>
+        //UC3 - Method to Validate Email-ID entered by user
+        public static string ValidateEmail(string email)
         {
             try
             {
@@ -114,10 +114,10 @@ namespace UserRegistration
             {
                 return ex.Message;
             }
-        };
+        }
 
-        //UC4 - Method to Validate Mobile Number entered by user using lambda statement(UC14)
-        public static Func<string, string> ValidateMobileNumber = mobNum =>
+        //UC4 - Method to Validate Mobile Number entered by user
+        public static string ValidateMobileNumber(string mobNum)
         {
             try
             {
@@ -149,10 +149,10 @@ namespace UserRegistration
             {
                 return ex.Message;
             }
-        };
+        }
 
-        //UC5, UC6, UC7, UC8  - Method to Validate Password entered by user using lambda statement(UC14)
-        public static Func<string, string> ValidatePassword = password =>
+        //UC5, UC6, UC7, UC8  - Method to Validate Password entered by user
+        public static string ValidatePassword(string password)
         {
             try
             {
@@ -189,6 +189,6 @@ namespace UserRegistration
             {
                 return ex.Message;
             }
-        };
+        }
     }
 }
